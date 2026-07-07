@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bygg ditt CV</title>
+<title>CV Byggare</title>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -11,25 +11,56 @@
 
 <body>
 
-<div class="card">
+<div class="builder">
 
-<h1>CV Byggare</h1>
+<div class="form">
 
-<p>Fyll i dina uppgifter.</p>
+<h2>Personuppgifter</h2>
 
-<input type="text" placeholder="För- och efternamn"><br><br>
+<input id="name" type="text" placeholder="Namn">
 
-<input type="email" placeholder="E-post"><br><br>
+<input id="title" type="text" placeholder="Yrkestitel">
 
-<input type="text" placeholder="Telefon"><br><br>
+<input id="email" type="email" placeholder="E-post">
 
-<textarea placeholder="Berätta om dig själv" rows="6"></textarea><br><br>
+<input id="phone" type="text" placeholder="Telefon">
 
-<button>Spara CV</button>
+<textarea id="about" placeholder="Berätta om dig själv"></textarea>
+
+<h2>Arbetslivserfarenhet</h2>
+
+<div id="jobs"></div>
+
+<button id="addJob">+ Lägg till jobb</button>
+
+<h2>Utbildning</h2>
+
+<div id="education"></div>
+
+<button id="addEducation">+ Lägg till utbildning</button>
+
+</div>
+
+<div class="preview">
+
+<h1 id="previewName">
+Ditt Namn
+</h1>
+
+<h3 id="previewTitle">
+Yrkestitel
+</h3>
+
+<p id="previewAbout">
+Här visas din profil.
+</p>
+
+</div>
 
 </div>
 
 <script src="js/app.js"></script>
 
 </body>
+
 </html>

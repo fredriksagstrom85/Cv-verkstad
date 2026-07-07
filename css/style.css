@@ -29,7 +29,7 @@ p{
     margin-bottom:30px;
 }
 
-.btn{
+btn{
     display:block;
     width:100%;
     margin:15px 0;
@@ -43,6 +43,6 @@ p{
     box-sizing:border-box;
 }
 
-.btn:hover{
+btn:hover{
     background:#0d47a1;
 }

@@ -2,10 +2,7 @@ body{
     margin:0;
     font-family:Arial, sans-serif;
     background:#f4f7fb;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+    padding:40px 20px;
 }
 
 header{
@@ -46,15 +43,15 @@ btn{
 btn:hover{
     background:#0d47a1;
 }
+
 .builder{
     display:flex;
     gap:30px;
-    width:95%;
+    width:100%;
     max-width:1400px;
-    margin:40px auto;
+    margin:0 auto;
     align-items:flex-start;
 }
-
 .form,
 .preview{
     flex:1;

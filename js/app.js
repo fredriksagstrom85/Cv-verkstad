@@ -1,4 +1,3 @@
-
 const nameInput = document.getElementById("name");
 const titleInput = document.getElementById("title");
 const aboutInput = document.getElementById("about");

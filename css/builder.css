@@ -1,0 +1,154 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#eef3f8;
+    color:#333;
+}
+
+.navbar{
+    background:#1565c0;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 40px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+}
+
+.menu{
+    display:flex;
+    gap:25px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.menu a.active{
+    border-bottom:3px solid white;
+}
+
+.builder{
+    display:grid;
+    grid-template-columns:420px 1fr;
+    gap:30px;
+    padding:30px;
+}
+
+.sidebar{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    height:calc(100vh - 120px);
+    overflow:auto;
+}
+
+.sidebar h2{
+    color:#1565c0;
+    margin:20px 0 10px;
+}
+
+.sidebar label{
+    display:block;
+    margin-top:12px;
+    font-weight:600;
+}
+
+.sidebar input,
+.sidebar textarea,
+.sidebar select{
+    width:100%;
+    margin-top:6px;
+    margin-bottom:12px;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+}
+
+.sidebar button{
+    width:100%;
+    padding:14px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    background:#1565c0;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.sidebar button:hover{
+    background:#0d47a1;
+}
+
+.preview{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+.cv-paper{
+    background:white;
+    width:210mm;
+    min-height:297mm;
+    padding:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.cv-header{
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+
+#previewPhoto{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #1565c0;
+}
+
+.cv-paper h1{
+    color:#1565c0;
+}
+
+.cv-paper h2{
+    margin-top:25px;
+    border-bottom:2px solid #1565c0;
+    padding-bottom:5px;
+}
+
+.cv-paper ul{
+    padding-left:20px;
+}
+
+@media(max-width:1100px){
+
+.builder{
+grid-template-columns:1fr;
+}
+
+.sidebar{
+height:auto;
+}
+
+.cv-paper{
+width:100%;
+min-height:auto;
+}
+
+}

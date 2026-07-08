@@ -50,3 +50,26 @@ document.getElementById("downloadPdf").addEventListener("click", function () {
     html2pdf().from(cv).save("Mitt-CV.pdf");
 
 });
+const photoInput = document.getElementById("photo");
+const previewPhoto = document.getElementById("previewPhoto");
+
+photoInput.addEventListener("change", function () {
+
+    const file = this.files[0];
+
+    if(file){
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+
+            previewPhoto.src = e.target.result;
+            previewPhoto.style.display = "block";
+
+        }
+
+        reader.readAsDataURL(file);
+
+    }
+
+});

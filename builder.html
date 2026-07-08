@@ -1,222 +1,66 @@
 <!DOCTYPE html>
 <html lang="sv">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Verkstad - Bygg CV</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/builder.css">
 
-<title>CV Verkstad - Bygg CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="stylesheet" href="css/builder.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <nav class="navbar">
 
-<div class="logo">
-CV Verkstad
-</div>
+    <div class="logo">
+        CV Verkstad
+    </div>
 
-<div class="menu">
-
-<a href="index.html">Hem</a>
-
-<a href="builder.html" class="active">
-Bygg CV
-</a>
-
-<a href="templates.html">
-Mallar
-</a>
-
-</div>
+    <div class="menu">
+        <a href="index.html">Hem</a>
+        <a href="builder.html" class="active">Bygg CV</a>
+        <a href="templates.html">Mallar</a>
+    </div>
 
 </nav>
 
 <div class="builder">
 
-<div class="sidebar">
+    <aside class="sidebar">
 
-<h2>Personuppgifter</h2>
+        <h1>Bygg ditt CV</h1>
 
-<label>Profilbild</label>
+        <section class="card">
 
-<input type="file" id="photo" accept="image/*">
+            <h2>Personuppgifter</h2>
 
-<label>Namn</label>
+            <label>Profilbild</label>
+            <input type="file" id="photo" accept="image/*">
 
-<input id="name" type="text" placeholder="För- och efternamn">
+            <label>Namn</label>
+            <input id="name" type="text" placeholder="För- och efternamn">
 
-<label>Yrkestitel</label>
+            <label>Yrkestitel</label>
+            <input id="title" type="text" placeholder="Exempel: Driftledare">
 
-<input id="title" type="text" placeholder="Ex. Driftledare">
+            <label>E-post</label>
+            <input id="email" type="email">
 
-<label>E-post</label>
+            <label>Telefon</label>
+            <input id="phone" type="text">
 
-<input id="email" type="email" placeholder="namn@email.se">
+            <label>Adress</label>
+            <input id="address" type="text">
 
-<label>Telefon</label>
+            <label>LinkedIn</label>
+            <input id="linkedin" type="text">
 
-<input id="phone" type="text" placeholder="070-1234567">
+            <label>Om mig</label>
+            <textarea id="about" rows="6"></textarea>
 
-<label>Adress</label>
-
-<input id="address" type="text" placeholder="Gävle">
-
-<label>Om mig</label>
-
-<textarea id="about" rows="6"></textarea>
-  
-  <h2>Arbetslivserfarenhet</h2>
-
-<div id="jobs"></div>
-
-<button type="button" id="addJob">
-+ Lägg till jobb
-</button>
-
-<hr>
-
-<h2>Utbildning</h2>
-
-<div id="education"></div>
-
-<button type="button" id="addEducation">
-+ Lägg till utbildning
-</button>
-
-<hr>
-
-<h2>Kompetenser</h2>
-
-<div id="skills"></div>
-
-<button type="button" id="addSkill">
-+ Lägg till kompetens
-</button>
-
-<hr>
-
-<h2>Språk</h2>
-
-<select id="language">
-
-<option>Svenska</option>
-
-<option>Engelska</option>
-
-<option>Tyska</option>
-
-<option>Franska</option>
-
-<option>Spanska</option>
-
-</select>
-
-<select id="languageLevel">
-
-<option>Grundläggande</option>
-
-<option>God</option>
-
-<option>Mycket god</option>
-
-<option>Flytande</option>
-
-<option>Modersmål</option>
-
-</select>
-
-<button type="button" id="addLanguage">
-+ Lägg till språk
-</button>
-
-<div id="languages"></div>
-
-<hr>
-
-<button id="downloadPdf" class="download">
-📄 Ladda ner PDF
-</button>
-
-</div>
-
-<div class="preview">
-
-<div class="cv-paper">
-
-<div class="cv-header">
-
-<img id="previewPhoto" style="display:none;">
-
-<div>
-
-<h1 id="previewName">
-Ditt Namn
-</h1>
-
-<h3 id="previewTitle">
-Yrkestitel
-</h3>
-
-<p id="previewEmail"></p>
-
-<p id="previewPhone"></p>
-
-<p id="previewAddress"></p>
-
-</div>
-
-</div>
-
-<hr>
-
-<h2>Profil</h2>
-
-<p id="previewAbout">
-Här visas din profil.
-</p>
-
-<hr>
-
-<h2>Arbetslivserfarenhet</h2>
-
-<div id="previewJobs"></div>
-
-<hr>
-
-<h2>Utbildning</h2>
-
-<div id="previewEducation"></div>
-
-<hr>
-
-<h2>Kompetenser</h2>
-
-<ul id="previewSkills"></ul>
-
-<hr>
-
-<h2>Språk</h2>
-
-<ul id="previewLanguages"></ul>
-
-  </div>
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-<script src="js/builder.js"></script>
-
-</body>
-
-</html>
+        </section> 

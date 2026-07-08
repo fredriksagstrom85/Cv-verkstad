@@ -49,25 +49,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    // Lägg till jobb
     const addJob = document.getElementById("addJob");
 
-    addJob?.addEventListener("click", () => {
+function updateJobs() {
 
-        const jobs = document.getElementById("jobs");
+    const preview = document.getElementById("previewJobs");
+    preview.innerHTML = "";
 
-        const div = document.createElement("div");
+    document.querySelectorAll(".jobCard").forEach(job => {
 
-        div.innerHTML = `
-            <input type="text" placeholder="Företag">
-            <input type="text" placeholder="Titel">
-            <textarea placeholder="Beskrivning"></textarea>
-            <hr>
-        `;
+        const company = job.querySelector(".company").value;
+        const title = job.querySelector(".jobTitle").value;
+        const desc = job.querySelector(".jobDesc").value;
 
-        jobs.appendChild(div);
+        if(company || title || desc){
+
+            preview.innerHTML += `
+                <div style="margin-bottom:20px;">
+                    <h3>${title}</h3>
+                    <strong>${company}</strong>
+                    <p>${desc}</p>
+                </div>
+            `;
+
+        }
 
     });
+
+}
+
+addJob?.addEventListener("click", () => {
+
+    const jobs = document.getElementById("jobs");
+
+    const div = document.createElement("div");
+
+    div.className = "jobCard";
+
+    div.innerHTML = `
+        <input class="company" placeholder="Företag">
+        <input class="jobTitle" placeholder="Titel">
+        <textarea class="jobDesc" placeholder="Beskrivning"></textarea>
+        <hr>
+    `;
+
+    jobs.appendChild(div);
+
+    div.querySelectorAll("input, textarea").forEach(el=>{
+        el.addEventListener("input", updateJobs);
+    });
+
+});
 
     // Lägg till utbildning
     const addEducation = document.getElementById("addEducation");

@@ -1,24 +1,105 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV Verkstad</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Verkstad</title>
 
+    <link rel="stylesheet" href="css/style.css">
+</head>
 <body>
 
-<header>
-<h1>CV Verkstad</h1>
-<p>Skapa professionella CV helt gratis.</p>
+<nav class="navbar">
+    <div class="logo">CV Verkstad</div>
 
-<a href="builder.html" class="btn">Skapa CV</a>
+    <div class="menu">
+        <a href="index.html">Hem</a>
+        <a href="builder.html">Bygg CV</a>
+        <a href="templates.html">Mallar</a>
+    </div>
+</nav>
 
-<a href="templates.html" class="btn">Visa Mallar</a>
-</header>
+<section class="hero">
 
-<script src="js/app.js"></script>
+    <div class="hero-left">
+
+        <h1>Skapa ett professionellt CV gratis</h1>
+
+        <p>
+            Bygg ett modernt CV på några minuter.
+            Välj mellan flera mallar, förhandsgranska i realtid
+            och ladda ner som PDF.
+        </p>
+
+        <a href="builder.html" class="btn">
+            Skapa mitt CV
+        </a>
+
+    </div>
+
+    <div class="hero-right">
+
+        <div class="cv-demo">
+
+            <div class="cv-header">
+                <div class="photo"></div>
+
+                <div>
+                    <h2>Anna Andersson</h2>
+                    <p>Projektledare</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <h3>Profil</h3>
+
+            <p>
+                Driven och engagerad projektledare med flera års erfarenhet
+                av ledarskap och utveckling.
+            </p>
+
+            <h3>Kompetenser</h3>
+
+            <ul>
+                <li>Projektledning</li>
+                <li>Ledarskap</li>
+                <li>Kommunikation</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="features">
+
+    <div class="feature">
+        📄
+        <h3>PDF-export</h3>
+        <p>Ladda ner ditt CV med ett klick.</p>
+    </div>
+
+    <div class="feature">
+        🎨
+        <h3>CV-mallar</h3>
+        <p>Flera moderna designer.</p>
+    </div>
+
+    <div class="feature">
+        💾
+        <h3>Autospara</h3>
+        <p>Dina ändringar sparas automatiskt.</p>
+    </div>
+
+</section>
+
+<footer>
+
+    © 2026 CV Verkstad
+
+</footer>
 
 </body>
 </html>

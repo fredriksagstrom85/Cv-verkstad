@@ -111,3 +111,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+// Kompetenser
+const addSkill = document.getElementById("addSkill");
+
+addSkill?.addEventListener("click", () => {
+
+    const skills = document.getElementById("skills");
+
+    const div = document.createElement("div");
+
+    div.innerHTML = `
+        <input class="skillInput" type="text" placeholder="Kompetens">
+    `;
+
+    skills.appendChild(div);
+
+    updateSkills();
+
+    div.querySelector(".skillInput").addEventListener("input", updateSkills);
+
+});
+
+function updateSkills(){
+
+    const preview = document.getElementById("previewSkills");
+
+    preview.innerHTML = "";
+
+    document.querySelectorAll(".skillInput").forEach(skill=>{
+
+        if(skill.value.trim() !== ""){
+
+            preview.innerHTML += `<li>${skill.value}</li>`;
+
+        }
+
+    });
+
+}

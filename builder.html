@@ -1,78 +1,76 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV Byggare</title>
+
+<title>CV Verkstad - Bygg CV</title>
 
 <link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
+<nav class="navbar">
+
+<div class="logo">
+CV Verkstad
+</div>
+
+<div class="menu">
+
+<a href="index.html">Hem</a>
+
+<a href="builder.html" class="active">
+Bygg CV
+</a>
+
+<a href="templates.html">
+Mallar
+</a>
+
+</div>
+
+</nav>
+
 <div class="builder">
 
-<div class="form">
+<div class="sidebar">
 
 <h2>Personuppgifter</h2>
 
-<input id="name" type="text" placeholder="Namn">
+<label>Profilbild</label>
 
-<input id="title" type="text" placeholder="Yrkestitel">
-
-<input id="email" type="email" placeholder="E-post">
-
-<input id="phone" type="text" placeholder="Telefon">
-  <label>Profilbild</label>
 <input type="file" id="photo" accept="image/*">
 
-<textarea id="about" placeholder="Berätta om dig själv"></textarea>
+<label>Namn</label>
 
-<h2>Arbetslivserfarenhet</h2>
+<input id="name" type="text" placeholder="För- och efternamn">
 
-<div id="jobs"></div>
+<label>Yrkestitel</label>
 
-<button id="addJob">+ Lägg till jobb</button>
+<input id="title" type="text" placeholder="Ex. Driftledare">
 
-<h2>Utbildning</h2>
+<label>E-post</label>
 
-<div id="education"></div>
+<input id="email" type="email" placeholder="namn@email.se">
 
-<button id="addEducation">+ Lägg till utbildning</button>
-<h2>Kompetenser</h2>
+<label>Telefon</label>
 
-<div id="skills"></div>
+<input id="phone" type="text" placeholder="070-1234567">
 
-<button id="addSkill">+ Lägg till kompetens</button>
-</div>
-<div class="preview">
-<img id="previewPhoto" src="" alt="Profilbild" style="display:none;">
-<h1 id="previewName">
-Ditt Namn
-</h1>
+<label>Adress</label>
 
-<h3 id="previewTitle">
-Yrkestitel
-</h3>
+<input id="address" type="text" placeholder="Gävle">
 
-<p id="previewAbout">
-Här visas din profil.
-</p>
-<h2>Kompetenser</h2>
+<label>Om mig</label>
 
-<ul id="previewSkills"></ul>
-  <h2>Arbetslivserfarenhet</h2>
-
-<div id="previewJobs"></div>
-</div>
-
-</div>
-<button id="downloadPdf">Ladda ner som PDF</button>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script src="js/app.js"></script>
-
-</body>
-
-</html>
+<textarea id="about" rows="6"></textarea>

@@ -114,38 +114,30 @@ document.addEventListener("DOMContentLoaded", () => {
 // Kompetenser
 const addSkill = document.getElementById("addSkill");
 
+function updateSkills() {
+    const preview = document.getElementById("previewSkills");
+    preview.innerHTML = "";
+
+    document.querySelectorAll(".skillInput").forEach(skill => {
+        if (skill.value.trim() !== "") {
+            const li = document.createElement("li");
+            li.textContent = skill.value;
+            preview.appendChild(li);
+        }
+    });
+}
+
 addSkill?.addEventListener("click", () => {
 
     const skills = document.getElementById("skills");
 
-    const div = document.createElement("div");
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Kompetens";
+    input.className = "skillInput";
 
-    div.innerHTML = `
-        <input class="skillInput" type="text" placeholder="Kompetens">
-    `;
+    input.addEventListener("input", updateSkills);
 
-    skills.appendChild(div);
-
-    updateSkills();
-
-    div.querySelector(".skillInput").addEventListener("input", updateSkills);
+    skills.appendChild(input);
 
 });
-
-function updateSkills(){
-
-    const preview = document.getElementById("previewSkills");
-
-    preview.innerHTML = "";
-
-    document.querySelectorAll(".skillInput").forEach(skill=>{
-
-        if(skill.value.trim() !== ""){
-
-            preview.innerHTML += `<li>${skill.value}</li>`;
-
-        }
-
-    });
-
-}

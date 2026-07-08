@@ -43,3 +43,10 @@ document.getElementById("addEducation").addEventListener("click", function () {
 });
 
 updatePreview();
+document.getElementById("downloadPdf").addEventListener("click", function () {
+
+    const cv = document.querySelector(".preview");
+
+    html2pdf().from(cv).save("Mitt-CV.pdf");
+
+});

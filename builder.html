@@ -74,3 +74,149 @@ Mallar
 <label>Om mig</label>
 
 <textarea id="about" rows="6"></textarea>
+  
+  <h2>Arbetslivserfarenhet</h2>
+
+<div id="jobs"></div>
+
+<button type="button" id="addJob">
++ Lägg till jobb
+</button>
+
+<hr>
+
+<h2>Utbildning</h2>
+
+<div id="education"></div>
+
+<button type="button" id="addEducation">
++ Lägg till utbildning
+</button>
+
+<hr>
+
+<h2>Kompetenser</h2>
+
+<div id="skills"></div>
+
+<button type="button" id="addSkill">
++ Lägg till kompetens
+</button>
+
+<hr>
+
+<h2>Språk</h2>
+
+<select id="language">
+
+<option>Svenska</option>
+
+<option>Engelska</option>
+
+<option>Tyska</option>
+
+<option>Franska</option>
+
+<option>Spanska</option>
+
+</select>
+
+<select id="languageLevel">
+
+<option>Grundläggande</option>
+
+<option>God</option>
+
+<option>Mycket god</option>
+
+<option>Flytande</option>
+
+<option>Modersmål</option>
+
+</select>
+
+<button type="button" id="addLanguage">
++ Lägg till språk
+</button>
+
+<div id="languages"></div>
+
+<hr>
+
+<button id="downloadPdf" class="download">
+📄 Ladda ner PDF
+</button>
+
+</div>
+
+<div class="preview">
+
+<div class="cv-paper">
+
+<div class="cv-header">
+
+<img id="previewPhoto" style="display:none;">
+
+<div>
+
+<h1 id="previewName">
+Ditt Namn
+</h1>
+
+<h3 id="previewTitle">
+Yrkestitel
+</h3>
+
+<p id="previewEmail"></p>
+
+<p id="previewPhone"></p>
+
+<p id="previewAddress"></p>
+
+</div>
+
+</div>
+
+<hr>
+
+<h2>Profil</h2>
+
+<p id="previewAbout">
+Här visas din profil.
+</p>
+
+<hr>
+
+<h2>Arbetslivserfarenhet</h2>
+
+<div id="previewJobs"></div>
+
+<hr>
+
+<h2>Utbildning</h2>
+
+<div id="previewEducation"></div>
+
+<hr>
+
+<h2>Kompetenser</h2>
+
+<ul id="previewSkills"></ul>
+
+<hr>
+
+<h2>Språk</h2>
+
+<ul id="previewLanguages"></ul>
+
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

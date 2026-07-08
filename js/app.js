@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Personuppgifter
+    // ==========================
+    // PERSONUPPGIFTER
+    // ==========================
+
     const nameInput = document.getElementById("name");
     const titleInput = document.getElementById("title");
     const aboutInput = document.getElementById("about");
@@ -10,123 +13,192 @@ document.addEventListener("DOMContentLoaded", () => {
     const previewAbout = document.getElementById("previewAbout");
 
     function updatePreview() {
-        if (previewName)
-            previewName.textContent = nameInput.value || "Ditt Namn";
-
-        if (previewTitle)
-            previewTitle.textContent = titleInput.value || "Yrkestitel";
-
-        if (previewAbout)
-            previewAbout.textContent = aboutInput.value || "Här visas din profil.";
+        previewName.textContent = nameInput.value || "Ditt Namn";
+        previewTitle.textContent = titleInput.value || "Yrkestitel";
+        previewAbout.textContent = aboutInput.value || "Här visas din profil.";
     }
 
-    nameInput?.addEventListener("input", updatePreview);
-    titleInput?.addEventListener("input", updatePreview);
-    aboutInput?.addEventListener("input", updatePreview);
+    nameInput.addEventListener("input", updatePreview);
+    titleInput.addEventListener("input", updatePreview);
+    aboutInput.addEventListener("input", updatePreview);
 
     updatePreview();
 
-    // Profilbild
+    // ==========================
+    // PROFILBILD
+    // ==========================
+
     const photoInput = document.getElementById("photo");
     const previewPhoto = document.getElementById("previewPhoto");
 
-    photoInput?.addEventListener("change", function () {
+    photoInput.addEventListener("change", function () {
 
-        const file = this.files[0];
-
-        if (!file) return;
+        if (!this.files[0]) return;
 
         const reader = new FileReader();
 
         reader.onload = function (e) {
-
             previewPhoto.src = e.target.result;
             previewPhoto.style.display = "block";
-
         };
 
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(this.files[0]);
 
     });
 
-    const addJob = document.getElementById("addJob");
+    // ==========================
+    // JOBB
+    // ==========================
 
-function updateJobs() {
+    function updateJobs() {
 
-    const preview = document.getElementById("previewJobs");
-    preview.innerHTML = "";
+        const preview = document.getElementById("previewJobs");
 
-    document.querySelectorAll(".jobCard").forEach(job => {
+        if (!preview) return;
 
-        const company = job.querySelector(".company").value;
-        const title = job.querySelector(".jobTitle").value;
-        const desc = job.querySelector(".jobDesc").value;
+        preview.innerHTML = "";
 
-        if(company || title || desc){
+        document.querySelectorAll(".jobCard").forEach(job => {
 
-            preview.innerHTML += `
-                <div style="margin-bottom:20px;">
-                    <h3>${title}</h3>
-                    <strong>${company}</strong>
-                    <p>${desc}</p>
-                </div>
-            `;
+            const company = job.querySelector(".company").value;
+            const title = job.querySelector(".jobTitle").value;
+            const desc = job.querySelector(".jobDesc").value;
 
-        }
+            if (company || title || desc) {
 
-    });
+                preview.innerHTML += `
+                    <div style="margin-bottom:20px;">
+                        <h3>${title}</h3>
+                        <strong>${company}</strong>
+                        <p>${desc}</p>
+                    </div>
+                `;
 
-}
+            }
 
-addJob?.addEventListener("click", () => {
+        });
 
-    const jobs = document.getElementById("jobs");
+    }
 
-    const div = document.createElement("div");
-
-    div.className = "jobCard";
-
-    div.innerHTML = `
-        <input class="company" placeholder="Företag">
-        <input class="jobTitle" placeholder="Titel">
-        <textarea class="jobDesc" placeholder="Beskrivning"></textarea>
-        <hr>
-    `;
-
-    jobs.appendChild(div);
-
-    div.querySelectorAll("input, textarea").forEach(el=>{
-        el.addEventListener("input", updateJobs);
-    });
-
-});
-
-    // Lägg till utbildning
-    const addEducation = document.getElementById("addEducation");
-
-    addEducation?.addEventListener("click", () => {
-
-        const education = document.getElementById("education");
+    document.getElementById("addJob").addEventListener("click", () => {
 
         const div = document.createElement("div");
 
+        div.className = "jobCard";
+
         div.innerHTML = `
-            <input type="text" placeholder="Skola">
-            <input type="text" placeholder="Utbildning">
-            <input type="text" placeholder="År">
+            <input class="company" placeholder="Företag">
+            <input class="jobTitle" placeholder="Titel">
+            <textarea class="jobDesc" placeholder="Beskrivning"></textarea>
             <hr>
         `;
 
-        education.appendChild(div);
+        document.getElementById("jobs").appendChild(div);
+
+        div.querySelectorAll("input, textarea").forEach(el => {
+            el.addEventListener("input", updateJobs);
+        });
 
     });
 
+    // ==========================
+    // UTBILDNING
+    // ==========================
+
+    function updateEducation() {
+
+        const preview = document.getElementById("previewEducation");
+
+        if (!preview) return;
+
+        preview.innerHTML = "";
+
+        document.querySelectorAll(".educationCard").forEach(edu => {
+
+            const school = edu.querySelector(".school").value;
+            const program = edu.querySelector(".program").value;
+            const year = edu.querySelector(".year").value;
+
+            if (school || program || year) {
+
+                preview.innerHTML += `
+                    <div style="margin-bottom:20px;">
+                        <strong>${school}</strong><br>
+                        ${program}<br>
+                        <small>${year}</small>
+                    </div>
+                `;
+
+            }
+
+        });
+
+    }
+
+    document.getElementById("addEducation").addEventListener("click", () => {
+
+        const div = document.createElement("div");
+
+        div.className = "educationCard";
+
+        div.innerHTML = `
+            <input class="school" placeholder="Skola">
+            <input class="program" placeholder="Utbildning">
+            <input class="year" placeholder="År">
+            <hr>
+        `;
+
+        document.getElementById("education").appendChild(div);
+
+        div.querySelectorAll("input").forEach(el => {
+            el.addEventListener("input", updateEducation);
+        });
+
+    });
+
+    // ==========================
+    // KOMPETENSER
+    // ==========================
+
+    function updateSkills() {
+
+        const preview = document.getElementById("previewSkills");
+
+        if (!preview) return;
+
+        preview.innerHTML = "";
+
+        document.querySelectorAll(".skillInput").forEach(skill => {
+
+            if (skill.value.trim() !== "") {
+
+                preview.innerHTML += `<li>${skill.value}</li>`;
+
+            }
+
+        });
+
+    }
+
+    document.getElementById("addSkill").addEventListener("click", () => {
+
+        const input = document.createElement("input");
+
+        input.type = "text";
+        input.placeholder = "Kompetens";
+        input.className = "skillInput";
+
+        input.addEventListener("input", updateSkills);
+
+        document.getElementById("skills").appendChild(input);
+
+    });
+
+    // ==========================
     // PDF
-    const pdfBtn = document.getElementById("downloadPdf");
+    // ==========================
 
-    pdfBtn?.addEventListener("click", () => {
-
-        const cv = document.querySelector(".preview");
+    document.getElementById("downloadPdf").addEventListener("click", () => {
 
         html2pdf().set({
             margin: 10,
@@ -138,38 +210,8 @@ addJob?.addEventListener("click", () => {
                 format: "a4",
                 orientation: "portrait"
             }
-        }).from(cv).save();
+        }).from(document.querySelector(".preview")).save();
 
     });
-
-});
-// Kompetenser
-const addSkill = document.getElementById("addSkill");
-
-function updateSkills() {
-    const preview = document.getElementById("previewSkills");
-    preview.innerHTML = "";
-
-    document.querySelectorAll(".skillInput").forEach(skill => {
-        if (skill.value.trim() !== "") {
-            const li = document.createElement("li");
-            li.textContent = skill.value;
-            preview.appendChild(li);
-        }
-    });
-}
-
-addSkill?.addEventListener("click", () => {
-
-    const skills = document.getElementById("skills");
-
-    const input = document.createElement("input");
-    input.type = "text";
-    input.placeholder = "Kompetens";
-    input.className = "skillInput";
-
-    input.addEventListener("input", updateSkills);
-
-    skills.appendChild(input);
 
 });
